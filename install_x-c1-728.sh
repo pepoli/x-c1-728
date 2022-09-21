@@ -89,7 +89,7 @@ echo "0" > /sys/class/gpio/gpio$BUTTON_728/value
 echo "0" > /sys/class/gpio/gpio$BUTTON_c1/value
 ' > /usr/local/bin/x-c1-728softsd.sh
 sudo chmod +x /usr/local/bin/x-c1-728softsd.sh
-sudo echo "alias xoff='sudo x-c1-728softsd.sh'" >> /home/pi/.bashrc
+sudo echo "alias xoff='sudo /usr/local/bin/x-c1-728softsd.sh'" >> /home/pi/.bashrc
 
 #X728 Battery voltage & precentage reading
 #!/bin/bash
