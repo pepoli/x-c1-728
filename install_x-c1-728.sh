@@ -193,7 +193,7 @@ sudo sed -i "$ i python$PY_VERSION ${CUR_DIR}/fan.py >/dev/null &" /etc/rc.local
 
 #sudo echo "alias xoff='sudo x-c1-softsd.sh'" >> /home/pi/.bashrc
 sudo pigpiod
-python$PY_VERSION ${CUR_DIR}/fan.py&
+python3 ${CUR_DIR}/fan.py&
 
 echo "The installation is complete."
 echo "Please run 'sudo reboot' to reboot the device."
