@@ -182,7 +182,7 @@ print ("2.Disconnect and connect the power adapter to test")
 print ("3.When power adapter disconnected, you will see: AC Power Loss or Power Adapter Failure")
 print ("4.When power adapter disconnected, you will see: AC Power OK, Power Adapter OK")
 
-raw_input("Testing Started")
+input("Testing Started")
 ' > /home/pi/x728pld.py
 sudo chmod +x /home/pi/x728pld.py
 
@@ -192,8 +192,8 @@ CUR_DIR=$(pwd)
 sudo sed -i "$ i python$PY_VERSION ${CUR_DIR}/fan.py >/dev/null &" /etc/rc.local
 
 #sudo echo "alias xoff='sudo x-c1-softsd.sh'" >> /home/pi/.bashrc
-sudo pigpiod
-python3 ${CUR_DIR}/fan.py&
+#sudo pigpiod
+#python3 ${CUR_DIR}/fan.py&
 
 echo "The installation is complete."
 echo "Please run 'sudo reboot' to reboot the device."
