@@ -2,7 +2,7 @@
 sudo sed -i '$ i rtc-ds1307' /etc/modules
 sudo sed -i '$ i echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device' /etc/rc.local
 sudo sed -i '$ i hwclock -s' /etc/rc.local
-sudo sed -i '$ i #x728 Start power management on boot' /etc/rc.local
+sudo sed -i '$ i #x-c1-728 Start power management on boot' /etc/rc.local
 
 #x728 Powering on /reboot /full shutdown through hardware
 #!/bin/bash
@@ -95,7 +95,7 @@ sudo echo "alias xoff='sudo x-c1-728softsd.sh'" >> /home/pi/.bashrc
 #!/bin/bash
 
 #Get current PYTHON verson, 2 or 3
-PY_VERSION=`python -V 2>&1|awk '{print $2}'|awk -F '.' '{print $1}'`
+PY_VERSION=`python3 -V 2>&1|awk '{print $2}'|awk -F '.' '{print $1}'`
 
 #sudo sed -e '/shutdown/ s/^#*/#/' -i /etc/rc.local
 
