@@ -145,7 +145,7 @@ while True:
         print ("Battery Low")
 
 #Set battery low voltage to shut down, you can modify the 3.00 to other value
- if readVoltage(bus) < 3.00:
+ if (readVoltage(bus) < 3.00 or readCapacity(bus) < 20):
                 print ("Battery LOW!!!")
                 print ("Shutdown in 10 seconds")
                 time.sleep(10)
@@ -153,7 +153,7 @@ while True:
                 time.sleep(3)
                 GPIO.output(GPIO_PORT, GPIO.LOW)
 
- time.sleep(2)
+ time.sleep(10)
 ' >> /home/pi/x728bat.py
 sudo chmod +x /home/pi/x728bat.py
 sudo sed -i "$ i python3 /home/pi/x728bat.py >/dev/null &" /etc/rc.local
