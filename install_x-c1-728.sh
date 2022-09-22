@@ -156,7 +156,7 @@ while True:
  time.sleep(2)
 ' >> /home/pi/x728bat.py
 sudo chmod +x /home/pi/x728bat.py
-sudo sed -i "$ i python$PY_VERSION /home/pi/x728bat.py >/dev/null &" /etc/rc.local
+sudo sed -i "$ i python3 /home/pi/x728bat.py >/dev/null &" /etc/rc.local
 
 #X728 AC Power loss / power adapter failure detection
 #!/bin/bash
@@ -189,7 +189,7 @@ sudo chmod +x /home/pi/x728pld.py
 sudo systemctl enable pigpiod
 
 CUR_DIR=$(pwd)
-sudo sed -i "$ i python$PY_VERSION ${CUR_DIR}/fan.py >/dev/null &" /etc/rc.local
+sudo sed -i "$ i python3 ${CUR_DIR}/fan.py >/dev/null &" /etc/rc.local
 
 #sudo echo "alias xoff='sudo x-c1-softsd.sh'" >> /home/pi/.bashrc
 #sudo pigpiod
