@@ -34,11 +34,11 @@ echo "1" > /sys/class/gpio/gpio$BOOT_c1/value
 while [ 1 ]; do
   SHUTDOWN_728Signal=$(cat /sys/class/gpio/gpio$SHUTDOWN_728/value)
   SHUTDOWN_c1Signal=$(cat /sys/class/gpio/gpio$SHUTDOWN_c1/value)
-  if [ $SHUTDOWN_728Signal = 0 ] || [ $SHUTDOWN_c1Signal = 0 ]; then
+  if [ $SHUTDOWN_728Signal = 0 ] && [ $SHUTDOWN_c1Signal = 0 ]; then
     /bin/sleep 0.2
   else
     pulseStart=$(date +%s%N | cut -b1-13)
-    while [ $SHUTDOWN_728Signal = 1 ] && [ $SHUTDOWN_c1Signal = 1 ]; do
+    while [ $SHUTDOWN_728Signal = 1 ] || [ $SHUTDOWN_c1Signal = 1 ]; do
       /bin/sleep 0.02
       if [ $(($(date +%s%N | cut -b1-13)-$pulseStart)) -gt $REBOOTPULSEMAXIMUM ]; then
         echo "X728 Shutting down", SHUTDOWN, ", halting Rpi ..."
